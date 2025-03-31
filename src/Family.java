@@ -8,7 +8,10 @@ public class Family {
     }
 
     public void add(Person... person){
-        familyMembers.put(person.getName() + " " + person.getSurname(), person);
+        for(Person p: person){
+            familyMembers.put(p.getName() + ' ' + p.getSurname(), p);
+        }
+//        familyMembers.put(person.getName() + " " + person.getSurname(), person);
     }
     public Person get(String string){
         return familyMembers.get(string);

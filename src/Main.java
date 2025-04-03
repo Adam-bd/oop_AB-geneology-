@@ -20,9 +20,26 @@ public class Main {
 
         kacper.adopt(kamil);
         System.out.println("Adopcja: " + kacper.adopt(franek));
-        Person youngest = kacper.getYoungestChild();
-        System.out.println(youngest);
 
-        System.out.println(kacper.getChildren());
+        Person youngest = kacper.getYoungestChild();
+        System.out.println("Najmłodsze dziecko Kacpra: " + (youngest != null ? youngest : "Brak dzieci"));
+
+        System.out.println("Dzieci Kacpra posortowane od najstarszego do najmłodszego:");
+        for (Person child : kacper.getChildren()) {
+            System.out.println(child);
+        }
+
+        Family family = new Family();
+        family.add(kacper);
+        family.add(anna);
+        family.add(kacper,franek);
+
+
+        Person jan2 = new Person("Jan", "Kowalski", LocalDate.of(1985, 3, 10));
+        family.add(jan2);
+        System.out.println("Wyszukane osoby o imieniu Jan Kowalski:");
+        for (Person p : family.get("Jan Kowalski")) {
+            System.out.println(p);
+        }
     }
 }
